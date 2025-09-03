@@ -4,12 +4,25 @@ body{
   border:2px solid cyan;
   border-radius:25px;
   text-align:center;
+  width:800px;
+  margin:0 auto;
 }
 
+#container{
+  width:800px;
+}
 .tasks{
   display:flex;
+  word-break:break-all;
   flex:wrap;
   justify-content:space-between;
   margin:0 50px;
   padding:1px;
+}
+
+.tasks button{
+  width:150px;
+  min-width:100px;
+  height:25px;
+  text-algin:center;
 }
