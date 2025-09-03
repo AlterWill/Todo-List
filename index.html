@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo List</title>
+    <link rel="stylesheet" type="" href="style.css">
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <input type = "text" id="input" placeholder="Enter the task"> 
+    <button onclick=writeTask()>Create todo</button>
+    <button onclick=deleteAll()>deleteAll</button>
+    <br>
+    <p>Update Task</p>
+    <input type="number" id="update" placeholder="Enter task Number">
+    <input type="text" id="content" placeholder="Enter the updated task">
+    <button onclick=UpdateTask()>Update Task</button>
+    <p id="updateContent"></p>
+    <div id="container">
+    </div>
+    <script src="main.js">
+    </script>
+  </body>
+</html>
