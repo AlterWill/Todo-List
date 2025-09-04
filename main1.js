@@ -38,19 +38,24 @@ function deleteTask(num) {
   render()
 }
 
+function todoComponet(i) {
+  let divEl = document.createElement("div")
+  let spanA = document.createElement("span")
+  let del = document.createElement("button")
+  spanA.innerHTML = i + 1 + ":" + todos[i]["tasks"]
+  del.innerHTML = "Completed Task"
+  del.setAttribute("onclick", "deleteTask(" + i + ")")
+  divEl.setAttribute("class", "tasks")
+  divEl.appendChild(spanA)
+  divEl.appendChild(del)
+  return divEl
+}
+
 function render() {
   let container = document.getElementById("container")
   container.innerHTML = ""
   for (let i = 0; i < todos.length; i++) {
-    let divEl = document.createElement("div")
-    let spanA = document.createElement("span")
-    let del = document.createElement("button")
-    spanA.innerHTML = i + 1 + ":" + todos[i]["tasks"]
-    del.innerHTML = "Delete Task"
-    del.setAttribute("onclick", "deleteTask(" + i + ")")
-    divEl.setAttribute("class", "tasks")
-    divEl.appendChild(spanA)
-    divEl.appendChild(del)
+    let divEl = todoComponet(i)
     container.appendChild(divEl)
   }
 }
