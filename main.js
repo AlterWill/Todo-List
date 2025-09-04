@@ -14,7 +14,16 @@ function writeTask() {
     alert("Enter something in input")
     return
   }
-  newDiv.innerHTML = `<span class="content" id="C${count}">${count}:${value}</span><button onclick=deleteTask(${String(count)}) id=${count}>Delete Task</button>`
+  let spanA = document.createElement("span")
+  spanA.innerHTML = `${count}:${value}`
+  spanA.setAttribute("id", "C" + count)
+  spanA.setAttribute("class", "content")
+  let buttonA = document.createElement("button")
+  buttonA.setAttribute("onclick", `deleteTask(String(${count}))`)
+  buttonA.setAttribute("id", count)
+  buttonA.innerHTML = "Delete Task"
+  newDiv.appendChild(spanA)
+  newDiv.appendChild(buttonA)
   container.appendChild(newDiv)
   count++
 }
@@ -32,6 +41,7 @@ function deleteAll() {
 
 function UpdateTask() {
   let value = update.value
+  update.value = ""
   if (value > count || value < 1) {
     alert("Enter a valid task number")
     return
