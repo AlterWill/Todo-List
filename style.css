@@ -21,8 +21,7 @@ body{
 }
 
 .tasks button{
-  width:150px;
-  min-width:100px;
+  width:200px;
+  min-width:130px;
   height:25px;
-  text-algin:center;
 }
