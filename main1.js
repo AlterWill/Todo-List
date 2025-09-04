@@ -12,29 +12,27 @@ function writeTask() {
   document.getElementById("input").value = ""
 }
 
-function UpdateTask() {
-  let a = document.getElementById("update").value - 1
-  let b = document.getElementById("input").value
-  if (a > todos.length - 1 || a < 0) {
-    alert("Enter a proper task number")
-    return
-  }
-  if (a === "") {
-    alert("Enter a task number")
-    return
-  }
-  if (b.trim() === "") {
-    alert("Enter the updated task");
-    return
-  }
-  todos[a]["tasks"] = b;
-  render();
-  document.getElementById("input").value = ""
-  document.getElementById("update").value = ""
-}
-
 function deleteTask(num) {
   todos.splice(num, 1)
+  render()
+}
+
+function updateTask(i) {
+  let b = document.getElementById("input")
+  b.value = todos[i]["tasks"]
+  b.focus()
+  let a = document.querySelector("button")
+  a.innerHTML = "Update Task"
+  a.setAttribute("onclick", "updatetask(" + i + ")")
+}
+
+function updatetask(i) {
+  let b = document.getElementById("input")
+  todos[i]["tasks"] = b.value
+  let a = document.querySelector("button")
+  a.innerHTML = "Create Todo"
+  a.setAttribute("onclick", "writeTask()")
+  b.value = ""
   render()
 }
 
@@ -42,12 +40,18 @@ function todoComponet(i) {
   let divEl = document.createElement("div")
   let spanA = document.createElement("span")
   let del = document.createElement("button")
+  let update = document.createElement("button")
+  let spanB = document.createElement("span")
   spanA.innerHTML = i + 1 + ":" + todos[i]["tasks"]
+  update.innerHTML = "UpdateTask"
+  update.setAttribute("onclick", "updateTask(" + i + ")")
   del.innerHTML = "Completed Task"
   del.setAttribute("onclick", "deleteTask(" + i + ")")
   divEl.setAttribute("class", "tasks")
   divEl.appendChild(spanA)
-  divEl.appendChild(del)
+  spanB.appendChild(update)
+  spanB.appendChild(del)
+  divEl.appendChild(spanB)
   return divEl
 }
 
