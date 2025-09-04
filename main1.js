@@ -28,6 +28,10 @@ function updateTask(i) {
 
 function updatetask(i) {
   let b = document.getElementById("input")
+  if (b.value === "") {
+    alert("Enter a proper task")
+    return
+  }
   todos[i]["tasks"] = b.value
   let a = document.querySelector("button")
   a.innerHTML = "Create Todo"
