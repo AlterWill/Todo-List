@@ -16,8 +16,10 @@ body{
   word-break:break-all;
   flex:wrap;
   justify-content:space-between;
-  margin:0 50px;
-  padding:1px;
+  margin:5px 50px;
+  padding:10px;
+  border:2px dotted darkorange;
+  border-radius:25px;
 }
 
 .tasks button{
