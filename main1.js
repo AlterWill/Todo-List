@@ -43,7 +43,7 @@ function todoComponet(i) {
   let update = document.createElement("button")
   let spanB = document.createElement("span")
   spanA.innerHTML = i + 1 + ":" + todos[i]["tasks"]
-  update.innerHTML = "UpdateTask"
+  update.innerHTML = "Edit"
   update.setAttribute("onclick", "updateTask(" + i + ")")
   del.innerHTML = "Completed Task"
   del.setAttribute("onclick", "deleteTask(" + i + ")")
